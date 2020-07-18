@@ -13,6 +13,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	//_ "net/http/pprof"
 )
 
 func initialize() *chi.Mux {
@@ -81,6 +82,13 @@ func main() {
 
 	//启动网关
 	go gate.Run()
+
+	//性能测试
+	/*
+	go func() {
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+	}()
+	*/
 
 	//启动网络
 	err := http.ListenAndServe(*addr, r)

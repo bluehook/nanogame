@@ -48,6 +48,7 @@ func (word *Word) Start() {
 
 		//心跳到来时进行系统更新
 		if elapse > word.HeartTime {
+			//word.DebugStatus()
 			word.update()
 			elapse = 0
 		}
